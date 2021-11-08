@@ -44,15 +44,14 @@
 				oninput="resolution();" />
 			</div>
 		</div>
-<form method="post" action="{{ url_for('predict')}}">
-	<div class="container">
-		
-		<div class="row p-3 animate__animated animate__backInUp">
+<div class="row p-3 animate__animated animate__backInUp">
 			<div class="col-12">
 				<!-- <span>SELECT RAM</span> -->
 				<input type="text" id="ramm" name="ramm" placeholder="RAM" oninput="ramfunc();" required="required" />
 			</div>
-		</div>
+</div>
+<form method="post" action="{{ url_for('predict')}}">
+	<div class="container">
 		<div class="row p-3 animate__animated animate__backInDown">
 			<div class="col-12">
 				<!-- <span>SELECT RAM</span> -->
