@@ -19,8 +19,16 @@ def predict():
     prediction = model.predict(final_features)
 
     output = round(prediction[0], 2)
+    if(output==0):
+        out='LOW'
+    if(output==1):
+        out='MODERATE'
+    if(output==2):
+        out='HIGH'
+    if(output==3):
+        out='EXTREME HIGH'
 
-    return render_template('index.html', prediction_text='MOBILE PRICE RANGE IS  {}'.format(output))
+    return render_template('index.html', prediction_text='MOBILE PRICE RANGE IS  {}'.format(out))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
