@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/4a1b94d58e.js" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800">
+
+		<!-- MY FILES -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+
+</head>
+<body>
+ <div class="row p-5 animate__animated animate__swing">
+			<h2><i class="fa fa-mobile" aria-hidden="true"></i>  PREDICTION ANALYSIS OF MOBILE MARKET PRICES BASED ON MACHINE LEARNING AND PYTHON WEB FRAMEWORK</h2>
+</div>
+<div class="row animate__animated animate__heartBeat animate__jello sol" id="result">
+	<!-- <i class="fa fa-hand-pointer-o left-hand" aria-hidden="true"></i> -->
+	<span>
+		{{ prediction_text }}
+	</span>
+	<!-- <i class="fa fa-hand-pointer-o right-hand" aria-hidden="true"></i> -->
+</div>
+<div class="row p-3 animate__animated animate__backInUp">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" id="res_height" name="" placeholder="Resolution-Height"
+				oninput="resolution();" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInDown">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" id="res_width" name="" placeholder="Resolution-Width"
+				oninput="resolution();" />
+			</div>
+		</div>
+<form method="post" action="{{ url_for('predict')}}">
+	<div class="container">
+		
+		<div class="row p-3 animate__animated animate__backInUp">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" name="RAM" placeholder="RAM" required="required" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInDown">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" name="Battery" placeholder="Battery" required="required" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInUp" style="display: none;">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" id="resol" name="resol_length" placeholder="Resolution" required="required" />
+			</div>
+		</div>
+		<!-- <div class="row p-3 animate__animated animate__backInRight">
+			<div class="col-12">
+				<input type="text" id="res_height" name="" placeholder="height"
+				oninput="resolution();" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInRight">
+			<div class="col-12">
+				<input type="text" id="res_width" name="" placeholder="width"
+				oninput="resolution();" />
+			</div>
+		</div> -->
+		<div class="row p-3 animate__animated animate__backInDown">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" name="ROM" placeholder="ROM" required="required" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInUp">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" name="cores" placeholder="Cores" required="required" />
+			</div>
+		</div>
+		<div class="row mt-3 animate__animated animate__rubberBand">
+			<!-- <input type="submit" class="sub" name="sub" value="PREDICT PRICE">		 -->
+			<button type="submit" class="sub" href="result">PREDICT PRICE</button>
+		</div>
+	</div>
+	
+</form>
+
+<br><br><br>
+
+<script type="text/javascript">
+	function resolution()
+	{
+		x=document.getElementById('res_height').value;
+		y=document.getElementById('res_width').value;
+		// console.log(x);
+		res=Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
+		document.getElementById('resol').value=Math.floor(res);
+	}
+</script>
+
+<script src="{{ url_for('static', filename='wow.min.js') }}"></script>
+              <script>
+              new WOW().init();
+</script>
+</body>
+</html>
