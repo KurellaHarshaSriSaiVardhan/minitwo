@@ -50,7 +50,7 @@
 		<div class="row p-3 animate__animated animate__backInUp">
 			<div class="col-12">
 				<!-- <span>SELECT RAM</span> -->
-				<input type="text" name="RAM" placeholder="RAM" required="required" />
+				<input type="text" id="ramm" name="ramm" placeholder="RAM" oninput="ramfunc();" required="required" />
 			</div>
 		</div>
 		<div class="row p-3 animate__animated animate__backInDown">
@@ -63,6 +63,12 @@
 			<div class="col-12">
 				<!-- <span>SELECT RAM</span> -->
 				<input type="text" id="resol" name="resol_length" placeholder="Resolution" required="required" />
+			</div>
+		</div>
+		<div class="row p-3 animate__animated animate__backInUp" style="display: none;">
+			<div class="col-12">
+				<!-- <span>SELECT RAM</span> -->
+				<input type="text" id="ram" name="RAM" placeholder="RAM" required="required" />
 			</div>
 		</div>
 		<!-- <div class="row p-3 animate__animated animate__backInRight">
@@ -107,6 +113,13 @@
 		// console.log(x);
 		res=Math.sqrt((Math.pow(x,2))+(Math.pow(y,2)));
 		document.getElementById('resol').value=Math.floor(res);
+	}
+	function ramfunc()
+	{
+		a=document.getElementById('ramm').value;
+		ramout=a*1024;
+		document.getElementById('ram').value=Math.floor(ramout);
+		console.log(ramout);
 	}
 </script>
 
